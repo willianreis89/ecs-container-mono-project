@@ -10,7 +10,6 @@ phases:
       - npm -v
   build:
     commands:
-      - aws s3 cp deploy.sh s3://$bucket/deploy.sh
       - deploy.sh
       - echo "teste" >> elb.txt
   post_build:
