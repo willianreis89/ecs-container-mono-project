@@ -1,19 +1,22 @@
 version: 0.2
- phases:
- install: 
-     runtime-versions:
-     docker: 18
-     commands: 
+phases:
+  install: 
+    runtime-versions:
+      docker: 18
+    commands: 
      - apt-get update -y
      - apt-get install -y jq
      - curl -L https://npmjs.org/install.sh | sh
      - npm -v
- build:
-     commands:
+  build:
+    commands:
+     - echo $stackName
+     - aws cloudformation --region us-east-1 describe-stacks --stack-name $stackName
+     - aws s3 cp deploy.sh s3://$bucket/deploy.sh
      - deploy.sh
      - echo "teste" >> elb.txt
- post_build:
-     commands:
+  post_build:
+    commands:
      - echo "DONE!!!!"
      
  artifacts:
