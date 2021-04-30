@@ -10,8 +10,6 @@ phases:
       - npm -v
   build:
     commands:
-      - echo $stackName
-      - aws cloudformation --region us-east-1 describe-stacks --stack-name $stackName
       - aws s3 cp deploy.sh s3://$bucket/deploy.sh
       - deploy.sh
       - echo "teste" >> elb.txt
