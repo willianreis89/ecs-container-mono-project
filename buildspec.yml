@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       - chmod +x ./deploy.sh
-      - ./deploy.sh
+      - bash ./deploy.sh us-east-1 mono_trabalho
       - echo "teste" >> elb.txt
   post_build:
     commands:

@@ -1,5 +1,5 @@
-REGION=us-east-1
-STACK_NAME=mono_trabalho
+REGION=$1
+STACK_NAME=$2
 
 DEPLOYABLE_SERVICES=(
 	api
