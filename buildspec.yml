@@ -10,8 +10,8 @@ phases:
       - npm -v
   build:
     commands:
-      - aws s3 cp deploy.sh s3://$bucket/deploy.sh
-      - deploy.sh
+      - chmod +x ./deploy.sh
+      - ./deploy.sh us-east-1 mono_trabalho
       - echo "teste" >> elb.txt
   post_build:
     commands:
